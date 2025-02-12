@@ -75,10 +75,10 @@ const ModalTagUpdate = forwardRef((_, ref: Ref<RefModalTagUpdate>) => {
       
       const newList = listTag.map(item => item.ID === result.ID ? result : item);
       setListTag(newList);
-      noti.success("Sửa thành viên thành công");
+      noti.success("Sửa tag thành công");
     } catch (error) {
       console.log(error);
-      noti.error("Sửa thành viên thất bại");
+      noti.error("Sửa tag thất bại");
     }
 
     form.reset();
@@ -94,10 +94,10 @@ const ModalTagUpdate = forwardRef((_, ref: Ref<RefModalTagUpdate>) => {
       await Delete({ id: tag.ID });
       const newList = listTag.filter(item => item.ID !== tag.ID);
       setListTag(newList);
-      noti.success("Xóa thành viên thành công");
+      noti.success("Xóa tag thành công");
     } catch (error) {
       console.log(error);
-      noti.error("Xóa thành viên thất bại");
+      noti.error("Xóa tag thất bại");
     }
 
     form.reset();
@@ -108,7 +108,7 @@ const ModalTagUpdate = forwardRef((_, ref: Ref<RefModalTagUpdate>) => {
   return (
     <>
       <Modal
-        title="Chỉnh sửa thành viên"
+        title="Chỉnh sửa tag"
         opened={modal}
         onClose={() => setModal(false)}
       >

@@ -72,8 +72,8 @@ const ModalTaskUpdate = forwardRef((_, ref: Ref<RefModalTaskUpdate>) => {
         name: values.name,
         startAt: values.startAt,
         finishAt: values.finishAt,
-        tagId: values.tagId,
-        userId: values.userId,
+        tagId: Number(values.tagId),
+        userId: Number(values.userId),
       }));
 
       console.log(result);
@@ -81,10 +81,10 @@ const ModalTaskUpdate = forwardRef((_, ref: Ref<RefModalTaskUpdate>) => {
       
       const newList = listTask.map(item => item.ID === result.ID ? result : item);
       setListTask(newList);
-      noti.success("Sửa thành viên thành công");
+      noti.success("Sửa task thành công");
     } catch (error) {
       console.log(error);
-      noti.error("Sửa thành viên thất bại");
+      noti.error("Sửa task thất bại");
     }
 
     form.reset();
@@ -100,10 +100,10 @@ const ModalTaskUpdate = forwardRef((_, ref: Ref<RefModalTaskUpdate>) => {
       await Delete({ id: task.ID });
       const newList = listTask.filter(item => item.ID !== task.ID);
       setListTask(newList);
-      noti.success("Xóa thành viên thành công");
+      noti.success("Xóa task thành công");
     } catch (error) {
       console.log(error);
-      noti.error("Xóa thành viên thất bại");
+      noti.error("Xóa task thất bại");
     }
 
     form.reset();
@@ -114,12 +114,12 @@ const ModalTaskUpdate = forwardRef((_, ref: Ref<RefModalTaskUpdate>) => {
   return (
     <>
       <Modal
-        title="Chỉnh sửa thành viên"
+        title="Chỉnh sửa task"
         opened={modal}
         onClose={() => setModal(false)}
       >
         <form
-          id="update-Task"
+          id="update-task"
           onSubmit={form.onSubmit(handleUpdate)}
         >
           <TextInput
@@ -153,7 +153,7 @@ const ModalTaskUpdate = forwardRef((_, ref: Ref<RefModalTaskUpdate>) => {
           >Xóa</Button>
           <Button
             type="submit"
-            form="update-Task"
+            form="update-task"
           >Hoàn tất</Button>
         </Group>
       </Modal>

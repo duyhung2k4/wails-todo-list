@@ -1,0 +1,10 @@
+.user_item {
+  background-color: #201428;
+  border: 2px solid #8F08C3;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.user_item p {
+  color: white !important;
+}
